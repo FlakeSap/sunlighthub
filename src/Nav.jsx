@@ -14,14 +14,17 @@ const NAV_ITEMS = [
   {
     label: 'Solutions',
     to: '/solutions',
-    items: [{ label: 'Sunset', to: '/solutions#sunset' }],
+    items: [
+      { label: 'Sunset', to: '/solutions#sunset' },
+      { label: 'SunScript', to: '/solutions#sunscript' },
+    ],
   },
   {
     label: 'Resources',
     to: '/resources',
     items: [
-      { label: 'Sunlight on GitHub', href: 'https://github.com/FlakeSap/sunlighthub' },
-      { label: 'Sunset on GitHub', href: 'https://github.com/FlakeSap/sunset-public' },
+      { label: 'Sunset manual', to: '/resources#sunset' },
+      { label: 'SunScript manual', to: '/resources#sunscript' },
     ],
   },
   { label: 'About', to: '/about' },

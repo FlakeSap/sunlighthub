@@ -1,4 +1,12 @@
-const MANUALS = [{ id: 'sunset', title: 'Sunset' }]
+const MANUALS = [
+  {
+    id: 'sunset',
+    title: 'Sunset',
+    body: 'How memory, modes, and Sunshine work, plus everything that isn’t obvious the first time you open it.',
+    href: 'https://sunset-public.onrender.com/?manual=1',
+  },
+  { id: 'sunscript', title: 'SunScript' },
+]
 
 export function Resources() {
   return (
@@ -9,7 +17,16 @@ export function Resources() {
         {MANUALS.map((m) => (
           <div id={m.id} key={m.id} className="feature-item">
             <h2>{m.title} manual</h2>
-            <p className="coming-soon">Coming soon</p>
+            {m.href ? (
+              <>
+                <p>{m.body}</p>
+                <a href={m.href} target="_blank" rel="noreferrer" className="feature-link">
+                  Open {m.title} manual &rarr;
+                </a>
+              </>
+            ) : (
+              <p className="coming-soon">Coming soon</p>
+            )}
           </div>
         ))}
       </div>

@@ -5,6 +5,12 @@ const SOLUTIONS = [
     body: 'An AI companion with two moods — Sunset and Sunshine — usable from the web or right inside VS Code.',
     href: 'https://sunset-public.onrender.com',
   },
+  {
+    id: 'sunscript',
+    title: 'SunScript',
+    body: 'An idea, research, and coding assistant with three focused modes — Instant, Deep Analysis (grounded in live web search), and Coding.',
+    href: 'https://sunscript.onrender.com',
+  },
 ]
 
 export function Solutions() {
