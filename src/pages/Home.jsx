@@ -145,7 +145,10 @@ function ProjectsSection() {
 
   return (
     <section ref={sunrayRef} className="projects-section">
-      <div className={`sunray ${sunrayVisible ? 'sunray-visible' : ''}`} aria-hidden="true" />
+      <div className={`sunray ${sunrayVisible ? 'sunray-visible' : ''}`} aria-hidden="true">
+        <div className="sun-core" />
+        <div className="sun-beams" />
+      </div>
       <div ref={headerRef} className={`projects-header ${headerVisible ? 'is-visible' : ''}`}>
         <h2>The projects</h2>
         <p>Every one we've shipped, growing one card at a time.</p>
