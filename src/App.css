@@ -510,20 +510,36 @@
   mix-blend-mode: overlay;
   filter: blur(1px);
   opacity: 0;
-  transition: opacity 0.9s ease;
+  transform: scale(0.95) rotate(-2deg);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
 }
 
 .sunray-visible {
   opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 :root[data-theme='dark'] .sunray {
-  mix-blend-mode: screen;
+  mix-blend-mode: soft-light;
+  filter: blur(26px);
+  background: repeating-conic-gradient(
+    from 20deg at 0% 0%,
+    rgba(255, 205, 130, 0.4) 0deg 2deg,
+    transparent 2deg 16deg
+  );
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .sunray {
-    mix-blend-mode: screen;
+    mix-blend-mode: soft-light;
+    filter: blur(26px);
+    background: repeating-conic-gradient(
+      from 20deg at 0% 0%,
+      rgba(255, 205, 130, 0.4) 0deg 2deg,
+      transparent 2deg 16deg
+    );
   }
 }
 
@@ -961,6 +977,15 @@
 
 .chat-msg-loading {
   opacity: 0.6;
+}
+
+.chat-md-h {
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.chat-md-li {
+  padding-left: 4px;
 }
 
 .chat-error {

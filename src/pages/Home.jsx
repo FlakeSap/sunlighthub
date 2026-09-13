@@ -13,6 +13,17 @@ const projects = [
     tags: ['Web App', 'VS Code Extension'],
     links: [{ label: 'Open Sunset', href: 'https://sunset-public.onrender.com' }],
   },
+  {
+    id: 'sunforge',
+    name: 'Sunforge',
+    year: '2026',
+    status: 'progress',
+    tagline: 'Give your AI new skills.',
+    description:
+      'A skill registry for Sunset — register custom skills like weather lookups, saved notes, and page summaries, and watch the AI call them live through native function calling.',
+    tags: ['Skill Registry', 'Dashboard'],
+    links: [],
+  },
 ]
 
 const trio = [

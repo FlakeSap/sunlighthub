@@ -7,6 +7,42 @@ const WELCOME = {
   text: "Hi! I'm the Sunlight helper — ask me what this site is, what Sunset does, or how to find something.",
 }
 
+function renderInline(text, keyPrefix) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**') ? (
+      <strong key={`${keyPrefix}-${i}`}>{part.slice(2, -2)}</strong>
+    ) : (
+      part
+    ),
+  )
+}
+
+function MarkdownLite({ text }) {
+  const lines = text.split('\n')
+  return (
+    <>
+      {lines.map((line, i) => {
+        if (line.startsWith('## ')) {
+          return (
+            <div key={i} className="chat-md-h">
+              {renderInline(line.slice(3), i)}
+            </div>
+          )
+        }
+        if (line.startsWith('- ')) {
+          return (
+            <div key={i} className="chat-md-li">
+              &bull; {renderInline(line.slice(2), i)}
+            </div>
+          )
+        }
+        if (!line.trim()) return <br key={i} />
+        return <div key={i}>{renderInline(line, i)}</div>
+      })}
+    </>
+  )
+}
+
 export function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([WELCOME])
@@ -57,7 +93,7 @@ export function ChatWidget() {
           <div className="chat-panel-messages" ref={listRef}>
             {messages.map((m, i) => (
               <div key={i} className={`chat-msg chat-msg-${m.role}`}>
-                {m.text}
+                {m.role === 'assistant' ? <MarkdownLite text={m.text} /> : m.text}
               </div>
             ))}
             {loading && <div className="chat-msg chat-msg-assistant chat-msg-loading">…</div>}
