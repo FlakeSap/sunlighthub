@@ -22,7 +22,7 @@ const projects = [
     description:
       'A skill registry for Sunset — register custom skills like weather lookups, saved notes, and page summaries, and watch the AI call them live through native function calling.',
     tags: ['Skill Registry', 'Dashboard'],
-    links: [],
+    links: [{ label: 'Open Sunforge', href: 'https://sunforge-us9v.onrender.com' }],
   },
 ]
 

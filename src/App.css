@@ -834,6 +834,13 @@
   text-decoration: underline;
 }
 
+.coming-soon {
+  margin-top: 8px;
+  color: var(--text);
+  opacity: 0.6;
+  font-style: italic;
+}
+
 /* ---------- Auth modal ---------- */
 
 .modal-overlay {
