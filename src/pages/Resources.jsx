@@ -1,7 +1,4 @@
-const MANUALS = [
-  { id: 'sunset', title: 'Sunset' },
-  { id: 'sunforge', title: 'Sunforge' },
-]
+const MANUALS = [{ id: 'sunset', title: 'Sunset' }]
 
 export function Resources() {
   return (

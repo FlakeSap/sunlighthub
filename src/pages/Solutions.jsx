@@ -5,12 +5,6 @@ const SOLUTIONS = [
     body: 'An AI companion with two moods — Sunset and Sunshine — usable from the web or right inside VS Code.',
     href: 'https://sunset-public.onrender.com',
   },
-  {
-    id: 'sunforge',
-    title: 'Sunforge',
-    body: 'A skill registry for Sunset — register custom skills and watch the AI call them live through native function calling.',
-    href: 'https://sunforge-us9v.onrender.com',
-  },
 ]
 
 export function Solutions() {
