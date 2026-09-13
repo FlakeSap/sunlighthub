@@ -13,6 +13,17 @@ const projects = [
     tags: ['Web App', 'VS Code Extension'],
     links: [{ label: 'Open Sunset', href: 'https://sunset-public.onrender.com' }],
   },
+  {
+    id: 'sunscript',
+    name: 'SunScript',
+    year: '2026',
+    status: 'live',
+    tagline: 'Idea, research, and code — one exclusive mode at a time.',
+    description:
+      'Instant for fast ideas, Deep Analysis grounded in live web search, or Coding for a straight answer on what to build with. Conversations save as starrable, shareable projects.',
+    tags: ['Web App'],
+    links: [{ label: 'Open SunScript', href: 'https://sunscript.onrender.com' }],
+  },
 ]
 
 const trio = [

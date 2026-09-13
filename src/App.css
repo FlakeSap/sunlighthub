@@ -539,6 +539,11 @@
   -webkit-mask-image: radial-gradient(circle at 19% 19%, black 0%, black 22%, transparent 78%);
   mask-image: radial-gradient(circle at 19% 19%, black 0%, black 22%, transparent 78%);
   filter: blur(2px);
+  /* Rotate around the sun-core's own center (19% 19%), not the box's — the
+     default 50% 50% origin made the beams sweep in a circle around the whole
+     container, so the rays visibly drifted away from the sun instead of
+     spinning in place around it. */
+  transform-origin: 19% 19%;
   animation: sun-rotate 60s linear infinite;
 }
 
