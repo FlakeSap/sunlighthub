@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const NAV_ITEMS = [
@@ -32,6 +32,21 @@ const NAV_ITEMS = [
 
 function DropdownItem({ item }) {
   const [open, setOpen] = useState(false)
+  const wrapRef = useRef(null)
+
+  // Click/tap is the only way this opens now — it used to also open on
+  // onMouseEnter and close on onMouseLeave, but on touch devices a tap fires
+  // a synthetic mouseenter+mouseleave pair right after the click, closing the
+  // menu before its content could even render. Closing on an outside pointer
+  // press (below) replaces what onMouseLeave used to do, without the touch bug.
+  useEffect(() => {
+    if (!open) return
+    function onPointerDown(e) {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => document.removeEventListener('pointerdown', onPointerDown)
+  }, [open])
 
   if (!item.items) {
     return (
@@ -42,11 +57,7 @@ function DropdownItem({ item }) {
   }
 
   return (
-    <div
-      className="nav-dropdown"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
+    <div ref={wrapRef} className="nav-dropdown">
       <button
         type="button"
         className="nav-link nav-link-btn"
