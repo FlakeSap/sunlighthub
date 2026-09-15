@@ -11,6 +11,12 @@ const SOLUTIONS = [
     body: 'An idea, research, and coding assistant with three focused modes — Instant, Deep Analysis (grounded in live web search), and Coding.',
     href: 'https://sunscript.onrender.com',
   },
+  {
+    id: 'sunguard',
+    title: 'SunGuard',
+    body: 'Redteam your system prompts for vulnerabilities, scan content for harm, and learn AI safety fundamentals — everything you need to ship safely.',
+    href: 'https://sunguard-mpxl.onrender.com',
+  },
 ]
 
 export function Solutions() {

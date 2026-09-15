@@ -6,6 +6,7 @@ const MANUALS = [
     href: 'https://sunset-public.onrender.com/?manual=1',
   },
   { id: 'sunscript', title: 'SunScript' },
+  { id: 'sunguard', title: 'SunGuard' },
 ]
 
 export function Resources() {

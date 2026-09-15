@@ -24,6 +24,17 @@ const projects = [
     tags: ['Web App'],
     links: [{ label: 'Open SunScript', href: 'https://sunscript.onrender.com' }],
   },
+  {
+    id: 'sunguard',
+    name: 'SunGuard',
+    year: '2026',
+    status: 'live',
+    tagline: 'AI that holds up like a guardrail should.',
+    description:
+      'Redteam your system prompts for vulnerabilities, scan content for harm, and learn AI safety fundamentals — everything you need to ship safely, in one place.',
+    tags: ['Web App', 'AI Safety'],
+    links: [{ label: 'Open SunGuard', href: 'https://sunguard-mpxl.onrender.com' }],
+  },
 ]
 
 const trio = [
