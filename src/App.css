@@ -846,6 +846,29 @@
   font-style: italic;
 }
 
+.manual-sections {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.manual-section {
+  border-left: 3px solid var(--accent);
+  padding: 2px 0 2px 14px;
+}
+
+.manual-section h3 {
+  font-size: 15px;
+  color: var(--text-h);
+}
+
+.manual-section p {
+  margin-top: 4px;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
 /* ---------- Auth modal ---------- */
 
 .modal-overlay {

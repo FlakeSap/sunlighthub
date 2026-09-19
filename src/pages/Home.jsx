@@ -35,6 +35,17 @@ const projects = [
     tags: ['Web App', 'AI Safety'],
     links: [{ label: 'Open SunGuard', href: 'https://sunguard-mpxl.onrender.com' }],
   },
+  {
+    id: 'sunstudy',
+    name: 'SunStudy',
+    year: '2026',
+    status: 'progress',
+    tagline: 'Prepare for exams smarter with AI.',
+    description:
+      "A free AI study companion — snap a problem for a step-by-step solution, turn your notes into flashcards and quizzes, and get a briefing on the exam you're preparing for.",
+    tags: ['Web App', 'Education'],
+    links: [],
+  },
 ]
 
 const trio = [
@@ -96,7 +107,7 @@ function TrioSection() {
 }
 
 function StatusBadge({ status }) {
-  const label = status === 'live' ? 'Live' : 'In progress'
+  const label = status === 'live' ? 'Live' : 'In Development'
   return <span className={`status status-${status}`}>{label}</span>
 }
 

@@ -25,6 +25,8 @@ const NAV_ITEMS = [
     items: [
       { label: 'Sunset manual', to: '/resources#sunset' },
       { label: 'SunScript manual', to: '/resources#sunscript' },
+      { label: 'SunGuard manual', to: '/resources#sunguard' },
+      { label: 'SunStudy manual', to: '/resources#sunstudy' },
     ],
   },
   { label: 'About', to: '/about' },
