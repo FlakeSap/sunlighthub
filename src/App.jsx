@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, Outlet, Link, useLocation } from 'react-router-dom'
 import './App.css'
 import { MENU } from './content'
+import { applyPageMeta } from './seo'
 import { useTheme } from './useTheme'
 import { useAuth } from './useAuth'
 import { Nav } from './Nav'
@@ -83,6 +84,9 @@ function Layout() {
 // page has rendered it (a client-side route change does not do this by itself).
 function RouteEffects() {
   const { pathname, hash } = useLocation()
+  useEffect(() => {
+    applyPageMeta(pathname)
+  }, [pathname])
   useEffect(() => {
     if (!hash) {
       window.scrollTo({ top: 0, behavior: 'instant' })

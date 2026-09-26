@@ -4,16 +4,49 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sunovo Labs is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
+    <meta name="description" content="Sunovo Labs is the company behind Sunset, SunScript, SunGuard and SunStudy." />
     <link rel="canonical" href="https://sunovo-laboratories.onrender.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Sunovo Labs" />
-    <meta property="og:description" content="Sunovo Labs is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
+    <meta property="og:description" content="Sunovo Labs is the company behind Sunset, SunScript, SunGuard and SunStudy." />
     <meta property="og:url" content="https://sunovo-laboratories.onrender.com/" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Sunovo Labs" />
-    <meta name="twitter:description" content="Sunovo Labs is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
-    <title>Sunovo Labs — the hub for every project we've shipped</title>
+    <meta name="twitter:description" content="Sunovo Labs is the company behind Sunset, SunScript, SunGuard and SunStudy." />
+    <title>Sunovo Labs</title>
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <!-- Tells search engines the site's name (and the short name people type). Keep the address in step with src/seo.js. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sunovo-laboratories.onrender.com/#organization",
+            "name": "Sunovo Labs",
+            "alternateName": "Sunovo",
+            "url": "https://sunovo-laboratories.onrender.com/",
+            "description": "Sunovo Labs is the company behind Sunset, SunScript, SunGuard and SunStudy.",
+            "brand": [
+              { "@type": "Brand", "name": "Sunset", "url": "https://sunset-public.onrender.com" },
+              { "@type": "Brand", "name": "SunScript", "url": "https://sunscript.onrender.com" },
+              { "@type": "Brand", "name": "SunGuard", "url": "https://sunguard-mpxl.onrender.com" },
+              { "@type": "Brand", "name": "SunStudy" }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sunovo-laboratories.onrender.com/#website",
+            "url": "https://sunovo-laboratories.onrender.com/",
+            "name": "Sunovo Labs",
+            "alternateName": "Sunovo",
+            "description": "Sunovo Labs is the company behind Sunset, SunScript, SunGuard and SunStudy.",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://sunovo-laboratories.onrender.com/#organization" }
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -30,7 +63,24 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Real content in the raw HTML, so a search engine (or anyone without JavaScript) sees what the site is.
+         React replaces all of it the moment the app loads. -->
+    <div id="root">
+      <div style="max-width: 720px; margin: 0 auto; padding: 96px 24px; font: 400 16px/1.6 system-ui, sans-serif; color: var(--text)">
+        <h1 style="margin: 0 0 12px; font-size: 32px; color: var(--text-h)">Sunovo Labs</h1>
+        <p>Sunovo Labs is the company behind Sunset, SunScript, SunGuard and SunStudy.</p>
+        <ul>
+          <li><a href="https://sunset-public.onrender.com">Sunset</a> — one AI companion, two moods.</li>
+          <li><a href="https://sunscript.onrender.com">SunScript</a> — idea, research and code, one mode at a time.</li>
+          <li><a href="https://sunguard-mpxl.onrender.com">SunGuard</a> — redteam your prompts and learn AI safety.</li>
+          <li>SunStudy — an AI study companion, in development.</li>
+        </ul>
+        <p>
+          <a href="/features">Features</a> · <a href="/solutions">Solutions</a> · <a href="/resources">Resources</a> ·
+          <a href="/about">About</a>
+        </p>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

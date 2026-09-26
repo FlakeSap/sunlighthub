@@ -3,13 +3,11 @@ export function About() {
     <section className="page-section">
       <h1>About</h1>
       <p className="page-lead">
-        Sunovo Labs is a hub for everything we build — one place to see it, use it, and watch it
-        grow. It started in 2026 with a single card for Sunset, and it's meant to gain a new one
-        every time we ship something else.
+        Sunovo Labs is the company behind Sunset, SunScript, SunGuard and SunStudy. It started in
+        2026 with Sunset, and a new product joins the list every time we ship something else.
       </p>
       <p className="page-lead">
-        No separate account per project, no digging through old repos to remember what you built —
-        just one growing index, built one project at a time.
+        One account works across everything we make, and every product has its own page here.
       </p>
     </section>
   )

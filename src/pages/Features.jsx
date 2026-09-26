@@ -20,7 +20,7 @@ export function Features() {
   return (
     <section className="page-section">
       <h1>Features</h1>
-      <p className="page-lead">What the Sunovo Labs hub itself does.</p>
+      <p className="page-lead">What you can do on the Sunovo Labs site.</p>
       <div className="feature-list">
         {FEATURES.map((f) => (
           <div id={f.id} key={f.id} className="feature-item">

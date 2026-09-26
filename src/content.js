@@ -54,8 +54,8 @@ export const PROJECTS = [
 export const NEWS = [
   {
     id: 'rename',
-    title: 'The SunLight hub is now Sunovo Labs',
-    summary: 'A new name for the place that lists everything we build. The projects are unchanged.',
+    title: 'SunLight is now Sunovo Labs',
+    summary: 'The company behind Sunset, SunScript, SunGuard and SunStudy has a new name. The products are unchanged.',
     category: 'Company',
     date: 'Sep 26, 2026',
     tone: 'ember',
