@@ -1,10 +1,11 @@
 import { useRef, useState, useEffect } from 'react'
+import { OPEN_CHAT_EVENT } from './content'
 
 const SUNSET_API = 'https://sunset-public.onrender.com'
 
 const WELCOME = {
   role: 'assistant',
-  text: "Hi! I'm the Sunlight helper — ask me what this site is, what Sunset does, or how to find something.",
+  text: "Hi! I'm the Sunovo Labs helper — ask me what this site is, what Sunset does, or how to find something.",
 }
 
 function renderInline(text, keyPrefix) {
@@ -57,8 +58,25 @@ export function ChatWidget() {
     }
   }, [messages, open])
 
-  async function send() {
-    const text = input.trim()
+  // The hero prompt and the menu's "Ask the helper" links reach this widget by
+  // an event, so they need no shared state. `sendRef` always points at the send()
+  // of the latest render, so an event never sends with stale messages.
+  const sendRef = useRef(null)
+  useEffect(() => {
+    sendRef.current = send
+  })
+  useEffect(() => {
+    function onAsk(e) {
+      setOpen(true)
+      const text = e.detail && e.detail.text
+      if (text) sendRef.current(text)
+    }
+    window.addEventListener(OPEN_CHAT_EVENT, onAsk)
+    return () => window.removeEventListener(OPEN_CHAT_EVENT, onAsk)
+  }, [])
+
+  async function send(override) {
+    const text = (typeof override === 'string' ? override : input).trim()
     if (!text || loading) return
     const next = [...messages, { role: 'user', text }]
     setMessages(next)
@@ -85,7 +103,7 @@ export function ChatWidget() {
       {open && (
         <div className="chat-panel">
           <div className="chat-panel-header">
-            <span>Sunlight helper</span>
+            <span>Sunovo Labs helper</span>
             <button type="button" onClick={() => setOpen(false)} aria-label="Close chat">
               &times;
             </button>
@@ -123,7 +141,7 @@ export function ChatWidget() {
         type="button"
         className="chat-bubble"
         onClick={() => setOpen((o) => !o)}
-        aria-label={open ? 'Close Sunlight helper' : 'Open Sunlight helper'}
+        aria-label={open ? 'Close Sunovo Labs helper' : 'Open Sunovo Labs helper'}
       >
         {open ? '×' : '✨'}
       </button>

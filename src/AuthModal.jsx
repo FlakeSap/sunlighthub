@@ -33,11 +33,11 @@ export function AuthModal({ auth, onClose }) {
             <h2>You're signed in</h2>
             <p className="modal-sub">{auth.user?.email}</p>
             {auth.isRegisteredAcrossProjects ? (
-              <p className="auth-note">This account is registered across all Sunlight projects.</p>
+              <p className="auth-note">This account is registered across all Sunovo Labs projects.</p>
             ) : (
               <button
                 type="button"
-                className="btn btn-primary"
+                className="pill pill-solid"
                 disabled={registering}
                 onClick={async () => {
                   setRegistering(true)
@@ -49,16 +49,16 @@ export function AuthModal({ auth, onClose }) {
                   setRegistering(false)
                 }}
               >
-                {registering ? 'Registering…' : 'Register across all Sunlight projects'}
+                {registering ? 'Registering…' : 'Register across all Sunovo Labs projects'}
               </button>
             )}
-            <button type="button" className="btn btn-ghost" onClick={auth.signOut}>
+            <button type="button" className="pill pill-mid" onClick={auth.signOut}>
               Sign out
             </button>
           </div>
         ) : (
           <div className="modal-body">
-            <h2>Sign in to Sunlight</h2>
+            <h2>Sign in to Sunovo Labs</h2>
             <p className="modal-sub">One account, recognized across Sunset and every project here.</p>
             <div className="google-button-wrap">
               <GoogleButton onCredential={handleCredential} onError={setError} />
@@ -69,7 +69,7 @@ export function AuthModal({ auth, onClose }) {
                 checked={registerChecked}
                 onChange={(e) => setRegisterChecked(e.target.checked)}
               />
-              Register this account across all Sunlight's projects
+              Register this account across all Sunovo Labs' projects
             </label>
             {registering && <p className="auth-note">Finishing sign-in…</p>}
           </div>

@@ -1,35 +1,29 @@
 import { useEffect, useState } from 'react'
 
+const KEY = 'sunlight-theme'
+
+// The site is dark unless a visitor picked light. An older version saved
+// 'system' for everyone who never touched the toggle, so any stored value other
+// than an explicit 'light' means dark.
 export function useTheme() {
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem('sunlight-theme') || 'system'
+      return localStorage.getItem(KEY) === 'light' ? 'light' : 'dark'
     } catch {
-      return 'system'
+      return 'dark'
     }
   })
 
   useEffect(() => {
-    const root = document.documentElement
-    if (theme === 'system') {
-      root.removeAttribute('data-theme')
-    } else {
-      root.setAttribute('data-theme', theme)
-    }
+    document.documentElement.setAttribute('data-theme', theme)
     try {
-      localStorage.setItem('sunlight-theme', theme)
+      localStorage.setItem(KEY, theme)
     } catch {
       // ignore
     }
   }, [theme])
 
-  const toggle = () => {
-    setTheme((current) => {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      const effectiveIsDark = current === 'dark' || (current === 'system' && prefersDark)
-      return effectiveIsDark ? 'light' : 'dark'
-    })
-  }
+  const toggle = () => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
 
   return [theme, toggle]
 }

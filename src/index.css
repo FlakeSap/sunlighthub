@@ -1,86 +1,65 @@
 :root {
-  --text: #6b6355;
-  --text-h: #1f1a12;
-  --bg: #fffdf8;
-  --bg-deep: #fff3dd;
-  --card-bg: #ffffff;
-  --card-bg-translucent: rgba(255, 255, 255, 0.72);
-  --border: #ece3d2;
-  --accent: #d97706;
-  --accent-2: #f59e0b;
-  --accent-bg: rgba(217, 119, 6, 0.1);
-  --accent-border: rgba(217, 119, 6, 0.5);
-  --glow: rgba(245, 158, 11, 0.16);
-  --glow-strong: rgba(245, 158, 11, 0.32);
-  --shadow:
-    rgba(31, 26, 18, 0.08) 0 10px 25px -5px,
-    rgba(31, 26, 18, 0.04) 0 4px 8px -4px;
-  --live: #15803d;
-  --live-bg: rgba(21, 128, 61, 0.1);
-  --progress: #b45309;
-  --progress-bg: rgba(180, 83, 9, 0.1);
-  --giant-fill: rgba(31, 26, 18, 0.08);
+  color-scheme: dark;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --bg: #000;
+  --surface: #212121;
+  --surface-2: #2f2f2f;
+  --surface-3: #3a3a3a;
+  --line: #2a2a2a;
+  --line-strong: #3d3d3d;
 
-  font: 17px/155% var(--sans);
-  color-scheme: light dark;
-  color: var(--text);
+  --text-h: #fff;
+  --text: #a3a3a3;
+  --dim: #767676;
+
+  --pill-solid-bg: #fff;
+  --pill-solid-fg: #000;
+
+  --accent: #f59e0b;
+  --accent-bg: rgba(245, 158, 11, 0.14);
+  --live: #4ade80;
+  --progress: #fbbf24;
+
+  --scrim: rgba(0, 0, 0, 0.62);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+  --gutter: clamp(20px, 2.6vw, 48px);
+  --bar-h: 76px;
+
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  font: 400 17px/1.5 var(--sans);
+  color: var(--text-h);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --text: #b3a993;
-    --text-h: #f6efe2;
-    --bg: #15120c;
-    --bg-deep: #2a1c0c;
-    --card-bg: #1d1810;
-    --card-bg-translucent: rgba(29, 24, 16, 0.72);
-    --border: #332b1c;
-    --accent: #fbbf24;
-    --accent-2: #f59e0b;
-    --accent-bg: rgba(251, 191, 36, 0.12);
-    --accent-border: rgba(251, 191, 36, 0.4);
-    --glow: rgba(251, 191, 36, 0.14);
-    --glow-strong: rgba(251, 191, 36, 0.28);
-    --shadow:
-      rgba(0, 0, 0, 0.45) 0 10px 25px -5px,
-      rgba(0, 0, 0, 0.25) 0 4px 8px -4px;
-    --live: #4ade80;
-    --live-bg: rgba(74, 222, 128, 0.14);
-    --progress: #fbbf24;
-    --progress-bg: rgba(251, 191, 36, 0.14);
-    --giant-fill: rgba(246, 239, 226, 0.08);
-  }
-}
+:root[data-theme='light'] {
+  color-scheme: light;
 
-:root[data-theme='dark'] {
-  --text: #b3a993;
-  --text-h: #f6efe2;
-  --bg: #15120c;
-  --bg-deep: #2a1c0c;
-  --card-bg: #1d1810;
-  --card-bg-translucent: rgba(29, 24, 16, 0.72);
-  --border: #332b1c;
-  --accent: #fbbf24;
-  --accent-2: #f59e0b;
-  --accent-bg: rgba(251, 191, 36, 0.12);
-  --accent-border: rgba(251, 191, 36, 0.4);
-  --glow: rgba(251, 191, 36, 0.14);
-  --glow-strong: rgba(251, 191, 36, 0.28);
-  --shadow:
-    rgba(0, 0, 0, 0.45) 0 10px 25px -5px,
-    rgba(0, 0, 0, 0.25) 0 4px 8px -4px;
-  --live: #4ade80;
-  --live-bg: rgba(74, 222, 128, 0.14);
-  --progress: #fbbf24;
-  --progress-bg: rgba(251, 191, 36, 0.14);
-  --giant-fill: rgba(246, 239, 226, 0.08);
+  --bg: #fff;
+  --surface: #f2f2f2;
+  --surface-2: #e7e7e7;
+  --surface-3: #dcdcdc;
+  --line: #e6e6e6;
+  --line-strong: #d0d0d0;
+
+  --text-h: #0d0d0d;
+  --text: #6a6a6a;
+  --dim: #a3a3a3;
+
+  --pill-solid-bg: #0d0d0d;
+  --pill-solid-fg: #fff;
+
+  --accent: #d97706;
+  --accent-bg: rgba(217, 119, 6, 0.12);
+  --live: #15803d;
+  --progress: #b45309;
+
+  --scrim: rgba(255, 255, 255, 0.7);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
 }
 
 *,
@@ -97,13 +76,13 @@ body {
   margin: 0;
   min-height: 100svh;
   background: var(--bg);
+  color: var(--text-h);
   overflow-x: hidden;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--heading);
   color: var(--text-h);
   margin: 0;
 }
@@ -114,6 +93,11 @@ p {
 
 a {
   color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {

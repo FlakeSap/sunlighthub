@@ -4,16 +4,30 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sunlight is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
-    <link rel="canonical" href="https://sunlighthub.onrender.com/" />
+    <meta name="description" content="Sunovo Labs is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
+    <link rel="canonical" href="https://sunovo-laboratories.onrender.com/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Sunlight" />
-    <meta property="og:description" content="Sunlight is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
-    <meta property="og:url" content="https://sunlighthub.onrender.com/" />
+    <meta property="og:title" content="Sunovo Labs" />
+    <meta property="og:description" content="Sunovo Labs is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
+    <meta property="og:url" content="https://sunovo-laboratories.onrender.com/" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Sunlight" />
-    <meta name="twitter:description" content="Sunlight is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
-    <title>Sunlight — the hub for every project we've shipped</title>
+    <meta name="twitter:title" content="Sunovo Labs" />
+    <meta name="twitter:description" content="Sunovo Labs is the hub for everything we build — find and open every live project, like Sunset and SunScript, from one place." />
+    <title>Sunovo Labs — the hub for every project we've shipped</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script>
+      // Set the theme before the first paint so a visitor who chose light never sees a dark flash.
+      try {
+        document.documentElement.setAttribute(
+          'data-theme',
+          localStorage.getItem('sunlight-theme') === 'light' ? 'light' : 'dark',
+        )
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark')
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

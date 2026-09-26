@@ -1,65 +1,61 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Routes, Route, Outlet, Link, useLocation } from 'react-router-dom'
 import './App.css'
+import { MENU } from './content'
 import { useTheme } from './useTheme'
 import { useAuth } from './useAuth'
-import { useScrolled } from './useScrolled'
 import { Nav } from './Nav'
 import { AuthModal } from './AuthModal'
 import { ChatWidget } from './ChatWidget'
+import { SiteLink } from './ui'
 import { Home } from './pages/Home'
 import { Features } from './pages/Features'
 import { Solutions } from './pages/Solutions'
 import { Resources } from './pages/Resources'
 import { About } from './pages/About'
 
-function Atmosphere() {
+function Footer({ theme, onToggleTheme }) {
   return (
-    <div className="atmosphere" aria-hidden="true">
-      <div className="glow-orb glow-orb-1" />
-      <div className="glow-orb glow-orb-2" />
-      <div className="glow-orb glow-orb-3" />
-    </div>
-  )
-}
-
-function FloatingDock({ theme, onToggleTheme }) {
-  const scrolled = useScrolled()
-  const isDark =
-    theme === 'dark' ||
-    (theme === 'system' &&
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches)
-
-  return (
-    <div className="dock">
-      <button
-        type="button"
-        className="dock-btn"
-        onClick={onToggleTheme}
-        aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-        title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      >
-        {isDark ? '☀' : '☽'}
-      </button>
-      <button
-        type="button"
-        className={`dock-btn dock-btn-top ${scrolled ? 'dock-btn-visible' : ''}`}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Back to top"
-        title="Back to top"
-        tabIndex={scrolled ? 0 : -1}
-      >
-        &uarr;
-      </button>
-    </div>
-  )
-}
-
-function Footer() {
-  return (
-    <footer className="hub-footer">
-      <p>Built one project at a time, since 2026.</p>
+    <footer className="site-footer">
+      <div className="footer-cols">
+        {MENU.map((item) => {
+          // The same links as the top bar, once each.
+          const seen = new Set()
+          const links = [...item.explore, ...item.groups.flatMap((g) => g.links)].filter((l) => {
+            const k = l.label + (l.to || l.href || l.action)
+            if (seen.has(k)) return false
+            seen.add(k)
+            return true
+          })
+          return (
+            <div className="footer-col" key={item.key}>
+              <p className="footer-title">{item.label}</p>
+              <ul>
+                {links.map((l) => (
+                  <li key={l.label + (l.to || l.href || l.action)}>
+                    <SiteLink link={l} className="footer-link" />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        })}
+      </div>
+      <div className="footer-bottom">
+        <Link to="/" className="footer-brand">
+          <span aria-hidden="true">&#9728;</span> Sunovo Labs
+        </Link>
+        <p className="footer-copy">Sunovo Labs © 2026 · Built one project at a time.</p>
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+        >
+          <span aria-hidden="true">{theme === 'dark' ? '☀' : '☽'}</span>
+          {theme === 'dark' ? 'Light theme' : 'Dark theme'}
+        </button>
+      </div>
     </footer>
   )
 }
@@ -68,31 +64,48 @@ function Layout() {
   const [theme, toggleTheme] = useTheme()
   const auth = useAuth()
   const [authOpen, setAuthOpen] = useState(false)
+  const { pathname, hash } = useLocation()
 
   return (
     <div id="page">
-      <Atmosphere />
-      <Nav auth={auth} onOpenAuth={() => setAuthOpen(true)} />
-      <FloatingDock theme={theme} onToggleTheme={toggleTheme} />
+      <Nav key={pathname + hash} auth={auth} onOpenAuth={() => setAuthOpen(true)} />
       <ChatWidget />
-      <Outlet />
-      <Footer />
+      <main>
+        <Outlet />
+      </main>
+      <Footer theme={theme} onToggleTheme={toggleTheme} />
       {authOpen && <AuthModal auth={auth} onClose={() => setAuthOpen(false)} />}
     </div>
   )
 }
 
-function ScrollToTop() {
+// New page: back to the top. A #section link: scroll to that section once the
+// page has rendered it (a client-side route change does not do this by itself).
+function RouteEffects() {
+  const { pathname, hash } = useLocation()
   useEffect(() => {
-    if (!window.location.hash) window.scrollTo(0, 0)
-  })
+    if (!hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      return
+    }
+    const id = decodeURIComponent(hash.slice(1))
+    let tries = 0
+    const timer = setInterval(() => {
+      const el = document.getElementById(id)
+      if (el || ++tries > 30) {
+        clearInterval(timer)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 40)
+    return () => clearInterval(timer)
+  }, [pathname, hash])
   return null
 }
 
 function App() {
   return (
     <>
-      <ScrollToTop />
+      <RouteEffects />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />

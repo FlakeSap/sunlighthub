@@ -7,7 +7,7 @@ const FEATURES = [
   {
     id: 'account',
     title: 'Shared account',
-    body: "Sign in once with Google and it's recognized across Sunset and everything else built under Sunlight — no separate accounts per project.",
+    body: "Sign in once with Google and it's recognized across Sunset and everything else built under Sunovo Labs — no separate accounts per project.",
   },
   {
     id: 'helper',
@@ -20,7 +20,7 @@ export function Features() {
   return (
     <section className="page-section">
       <h1>Features</h1>
-      <p className="page-lead">What the Sunlight hub itself does.</p>
+      <p className="page-lead">What the Sunovo Labs hub itself does.</p>
       <div className="feature-list">
         {FEATURES.map((f) => (
           <div id={f.id} key={f.id} className="feature-item">
