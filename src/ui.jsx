@@ -18,7 +18,7 @@ export function ArrowUpRight() {
 
 export function SearchIcon() {
   return (
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
       <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
       <path d="m16 16 4.2 4.2" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
@@ -27,7 +27,7 @@ export function SearchIcon() {
 
 export function ChevronDown() {
   return (
-    <svg className="chev" viewBox="0 0 12 12" width="12" height="12" aria-hidden="true" focusable="false">
+    <svg className="chev" viewBox="0 0 12 12" width="8" height="8" aria-hidden="true" focusable="false">
       <path d="m2.5 4.5 3.5 3.5 3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )

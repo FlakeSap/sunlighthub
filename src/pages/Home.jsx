@@ -134,7 +134,7 @@ function Hero() {
           aria-label="Ask the Sunovo Labs helper"
         />
         <button type="submit" className="prompt-send" disabled={!text.trim()} aria-label="Send">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
             <path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
